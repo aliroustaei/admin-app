@@ -1,0 +1,14 @@
+.chart {
+  box-shadow: var(--shadow);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 2rem 0;
+  max-width: 100%;
+  background-color: var(--bacgroung);
+  transition: background-color 0.5s ease-in;
+}
+
+.chart h3 {
+  color: var(--black);
+  margin-bottom: 1rem;
+}

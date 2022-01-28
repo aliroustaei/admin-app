@@ -1,0 +1,41 @@
+.newUser {
+  flex: 4;
+  padding: 2rem;
+  background-color: var(--bacgrounglite);
+  transition: background-color 0.5s ease-in;
+  color: var(--black);
+}
+
+.newUser h3 {
+  margin-bottom: 1rem;
+}
+
+.newUser form {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  border-radius: 10px;
+  background-color: var(--bacgroung);
+}
+
+.newUserLeft {
+  margin-right: 4rem;
+}
+
+.userUpdatItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.BtnNewUser {
+  margin-top: 2rem !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .newUser {
+    margin-top: 3rem;
+  }
+}

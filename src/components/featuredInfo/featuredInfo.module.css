@@ -1,0 +1,75 @@
+.FeaturedInfoBox {
+  display: flex;
+  width: 80%;
+  gap: 2rem;
+}
+
+.FeaturedInfo {
+  box-shadow: var(--shadow);
+  border-radius: 10px;
+  padding: 1rem;
+  width: 80%;
+  transition: background-color 0.5s ease-in;
+}
+
+.revanue {
+  background-color: var(--bacgroundGreen);
+  color: var(--green);
+}
+
+.revanue h3,
+.revanue h2 {
+  color: var(--green);
+}
+
+.sales {
+  background-color: var(--background-primary);
+  color: var(--primary);
+}
+
+.sales h3,
+.sales h2 {
+  color: var(--primary);
+}
+
+.cost {
+  background-color: var(--background-red);
+  color: var(--red);
+}
+
+.cost h3,
+.cost h2 {
+  color: var(--red);
+}
+
+.FeaturedInfo h3 {
+  font-weight: normal;
+}
+
+.FeaturedInfo small {
+  color: var(--grey);
+}
+
+.numberInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.iconGreen {
+  color: var(--green);
+}
+
+.iconRed {
+  color: var(--red);
+}
+
+@media only screen and (max-width: 768px) {
+  .FeaturedInfoBox {
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}

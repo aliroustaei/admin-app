@@ -1,0 +1,21 @@
+.home {
+  flex: 4;
+  padding: 2rem;
+  width: 70%;
+  background-color: var(--bacgrounglite);
+  transition: background-color 0.5s ease-in;
+}
+
+.widget {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .home {
+    margin-top: 4rem;
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,113 @@
+.user {
+  flex: 4;
+  padding: 2rem;
+  background-color: var(--bacgrounglite);
+  transition: background-color 0.5s ease-in;
+}
+
+.userTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.userContainer {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.userContainer p {
+  font-size: 0.9rem;
+}
+
+.userContainer hr {
+  margin-top: 1rem;
+  background-color: var(--primary);
+  height: 1px;
+  border: none;
+}
+
+.userInfo {
+  flex: 1;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: var(--bacgroung);
+}
+
+.userUpdate {
+  flex: 3;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: var(--bacgroung);
+  color: var(--black);
+}
+
+.userInfoTop {
+  display: flex;
+  align-items: center;
+}
+
+.userInfoTop div {
+  margin-left: 8px;
+}
+
+.userInfoTop p {
+  color: var(--grey);
+}
+
+.userInfoBottom h5 {
+  color: var(--grey);
+  margin: 1rem 0 0;
+}
+
+.userInfoIcon {
+  display: flex;
+  align-items: center;
+  color: var(--black);
+  padding: 8px 0;
+}
+
+.userInfoIcon p {
+  margin-left: 8px;
+}
+
+.userUpdate form {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  min-width: 15rem;
+}
+
+.userUpdatItem {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0;
+}
+
+.userUpdateRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 1rem;
+}
+
+.userUpdateImg {
+  display: flex;
+  align-items: center;
+  color: var(--black);
+}
+
+.userUpdateImg input {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .user {
+    margin-top: 3rem;
+  }
+}

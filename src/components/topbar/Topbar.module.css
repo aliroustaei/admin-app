@@ -1,0 +1,34 @@
+.topbox {
+  width: 100%;
+  height: 50px;
+  background-color: var(--primary);
+  transition: background-color 0.5s ease-in;
+  color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.topbarBox {
+  height: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.topbarRight {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbarimg {
+  width: 20px;
+  transition: all 0.5s;
+}

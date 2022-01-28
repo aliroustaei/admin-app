@@ -1,0 +1,40 @@
+.productsList {
+  flex: 4;
+  padding: 2rem;
+  background-color: var(--bacgrounglite);
+  transition: background-color 0.5s ease-in;
+}
+
+.product {
+  display: flex;
+  align-items: center;
+}
+
+.product p {
+  margin-left: 0.5rem;
+}
+
+.product img {
+  width: 40px;
+}
+
+.editBtn {
+  background-color: #ebf1fe;
+  color: #2a7ade;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.deletBtn {
+  color: var(--red);
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  .productsList {
+    height: 70vh;
+    margin-top: 4rem;
+  }
+}
