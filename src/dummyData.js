@@ -64,70 +64,18 @@ export const productData = [
   },
 ];
 
-export const userRows = [
+export const productDataAdd = [
   {
-    id: 1,
-    Name: "Ali Roustaei",
-    Avatar: "Ali Roustaei",
-    Email: "aliroustaei@gmail.com",
-    Status: "active",
-    Transaction: "$12,000",
+    name: "Jan",
+    Sales: 0,
   },
   {
-    id: 2,
-    Name: "Ali Roustaei",
-    Avatar: "Ali Roustaei",
-    Email: "aliroustaei@gmail.com",
-    Status: "active",
-    Transaction: "$12,000",
+    name: "Feb",
+    Sales: 0,
   },
   {
-    id: 3,
-    Name: "Ali Roustaei",
-    Avatar: "Ali Roustaei",
-    Email: "aliroustaei@gmail.com",
-    Status: "active",
-    Transaction: "$12,000",
-  },
-  {
-    id: 4,
-    Name: "Ali Roustaei",
-    Avatar: "Ali Roustaei",
-    Email: "aliroustaei@gmail.com",
-    Status: "active",
-    Transaction: "$12,000",
-  },
-  {
-    id: 5,
-    Name: "Ali Roustaei",
-    Avatar: "Ali Roustaei",
-    Email: "aliroustaei@gmail.com",
-    Status: "active",
-    Transaction: "$12,000",
-  },
-  {
-    id: 6,
-    Name: "Ali Roustaei",
-    Avatar: "Ali Roustaei",
-    Email: "aliroustaei@gmail.com",
-    Status: "active",
-    Transaction: "$12,000",
-  },
-  {
-    id: 7,
-    Name: "Ali Roustaei",
-    Avatar: "Ali Roustaei",
-    Email: "aliroustaei@gmail.com",
-    Status: "active",
-    Transaction: "$12,000",
-  },
-  {
-    id: 8,
-    Name: "Ali Roustaei",
-    Avatar: "Ali Roustaei",
-    Email: "aliroustaei@gmail.com",
-    Status: "active",
-    Transaction: "$12,000",
+    name: "Mar",
+    Sales: 0,
   },
 ];
 

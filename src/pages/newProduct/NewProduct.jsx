@@ -1,15 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+//styles
 import styles from "./newProduct.module.css";
-import {
-  TextField,
-  Select,
-  MenuItem,
-  FormControl,
-  InputLabel,
-  Button,
-} from "@material-ui/core";
+//material
+import { Button } from "@material-ui/core";
 
 const NewProduct = () => {
+  const [newProduct, setNewProduct] = useState();
+  const [sendDataProduct, setsendDataProduct] = useState(false);
+
+  const newProductHandle = (e) => {
+    if (e.target.name === "count") {
+      setNewProduct({
+        ...newProduct,
+        rating: { [e.target.name]: e.target.value },
+      });
+    } else {
+      setNewProduct({ ...newProduct, [e.target.name]: e.target.value });
+    }
+    if (newProduct.title && newProduct.price) {
+      setsendDataProduct(true);
+    } else {
+      setsendDataProduct(false);
+    }
+    console.log(newProduct);
+  };
+
+  const sendData = () => {
+    if (!newProduct.title && !newProduct.price) {
+      alert("please enter data");
+    }
+  };
+
+  //Show image
+  const [imageUrl, setImageUrl] = useState();
+
+  const funcImg = (e) => {
+    PreviewImage(e);
+    newProductHandle(e);
+  };
+
+  const PreviewImage = (e) => {
+    var oFReader = new FileReader();
+    oFReader.readAsDataURL(e.target.files[0]);
+    oFReader.onload = function (e) {
+      let src = e.target.result;
+      setImageUrl(src);
+    };
+  };
+
   return (
     <div className={styles.newProduct}>
       <h3>New Product</h3>
@@ -17,51 +56,61 @@ const NewProduct = () => {
         <div className={styles.newProductLeft}>
           <div className={styles.ProductUpdatItem}>
             <label>Image</label>
-            <TextField type="file" variant="outlined" size="small" />
+            <input
+              type="file"
+              name="image"
+              accept=".jpg,.jpeg,.png,"
+              onChange={funcImg}
+            />
           </div>
           <div className={styles.ProductUpdatItem}>
             <label>Name</label>
-            <TextField
-              label="Name"
-              type="text"
-              variant="outlined"
-              size="small"
-            />
+            <input type="text" name="title" onChange={newProductHandle} />
+          </div>
+          <div className={styles.ProductUpdatItem}>
+            <label>Price</label>
+            <input type="text" name="price" onChange={newProductHandle} />
           </div>
           <div className={styles.ProductUpdatItem}>
             <label>Stock</label>
-            <TextField
-              label="Stock"
-              type="text"
-              variant="outlined"
-              size="small"
-            />
+            <input type="text" name="count" onChange={newProductHandle} />
+          </div>
+          <div className={styles.ProductUpdatItem}>
+            <label>Description</label>
+            <textarea
+              name="description"
+              id=""
+              cols="30"
+              rows="10"
+              onChange={newProductHandle}
+            ></textarea>
           </div>
           <div className={styles.ProductUpdatItem}>
             <label>Active</label>
-            <FormControl variant="outlined" size="small">
-              <InputLabel id="demo-simple-select-outlined-label">
-                Active
-              </InputLabel>
-              <Select
-                labelId="demo-simple-select-outlined-label"
-                id="demo-simple-select-outlined"
-                label="Active"
-              >
-                <MenuItem value={10}>Yes</MenuItem>
-                <MenuItem value={20}>No</MenuItem>
-              </Select>
-            </FormControl>
+            <select name="active" id="" onChange={newProductHandle}>
+              <option value="yes">yes</option>
+              <option value="no">no</option>
+            </select>
           </div>
+
           <Button
             variant="contained"
             color="primary"
             className={styles.BtnNewProduct}
+            onClick={sendData}
           >
-            Create
+            {sendDataProduct ? (
+              <Link to={{ pathname: "/product/21", data: newProduct }}>
+                Creat
+              </Link>
+            ) : (
+              "creat"
+            )}
           </Button>
         </div>
-        <div className={styles.newProductRight}></div>
+        <div className={styles.newProductRight}>
+          <img src={imageUrl} alt="" />
+        </div>
       </form>
     </div>
   );

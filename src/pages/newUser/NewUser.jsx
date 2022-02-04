@@ -1,76 +1,76 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./newUser.module.css";
-import {
-  TextField,
-  RadioGroup,
-  Select,
-  MenuItem,
-  FormControl,
-  InputLabel,
-  Radio,
-  FormControlLabel,
-  Button,
-} from "@material-ui/core";
+import { RadioGroup, Radio, FormControlLabel, Button } from "@material-ui/core";
 
 const NewUser = () => {
+  const [newUser, setNewUser] = useState({ name: {}, address: {} });
+  let sendDataUser = Object.keys(newUser).length;
+
+  const newUserHandle = (e) => {
+    if (e.target.name === "firstname" || e.target.name === "lastname") {
+      setNewUser({
+        ...newUser,
+        name: { ...newUser.name, [e.target.name]: e.target.value },
+      });
+    } else if (e.target.name === "city" || e.target.name === "street") {
+      setNewUser({
+        ...newUser,
+        address: { ...newUser.address, [e.target.name]: e.target.value },
+      });
+    } else {
+      setNewUser({ ...newUser, [e.target.name]: e.target.value });
+    }
+    console.log(newUser, sendDataUser);
+  };
+
+  const sendData = () => {
+    if (sendDataUser < 6) {
+      alert("please enter data");
+    }
+  };
+
   return (
     <div className={styles.newUser}>
       <h3>New User</h3>
       <form>
         <div className={styles.newUserLeft}>
           <div className={styles.userUpdatItem}>
-            <label>User name</label>
-            <TextField
-              label="Username"
-              type="text"
-              variant="outlined"
-              size="small"
-            />
+            <label>Firstname</label>
+            <input type="text" name="firstname" onChange={newUserHandle} />
           </div>
           <div className={styles.userUpdatItem}>
-            <label>Full Name</label>
-            <TextField
-              label="Full Name"
-              type="text"
-              variant="outlined"
-              size="small"
-            />
+            <label>Lastname</label>
+            <input type="text" name="lastname" onChange={newUserHandle} />
+          </div>
+          <div className={styles.userUpdatItem}>
+            <label>Username</label>
+            <input type="text" name="username" onChange={newUserHandle} />
           </div>
           <div className={styles.userUpdatItem}>
             <label>Email</label>
-            <TextField
-              label="Email"
-              type="Email"
-              variant="outlined"
-              size="small"
-            />
+            <input type="email" name="email" onChange={newUserHandle} />
           </div>
           <div className={styles.userUpdatItem}>
             <label>Password</label>
-            <TextField
-              label="Password"
-              type="Password"
-              variant="outlined"
-              size="small"
-            />
+            <input type="text" name="Password" onChange={newUserHandle} />
           </div>
           <div className={styles.userUpdatItem}>
             <label>Phone</label>
-            <TextField
-              label="Phone"
-              type="text"
-              variant="outlined"
-              size="small"
-            />
+            <input type="text" name="phone" onChange={newUserHandle} />
           </div>
           <div className={styles.userUpdatItem}>
             <label>Address</label>
-            <TextField
-              label="Address"
-              type="text"
-              variant="outlined"
-              size="small"
-            />
+            <div>
+              <div className={styles.userAddress}>
+                <label>City: </label>
+                <input type="text" name="city" onChange={newUserHandle} />
+              </div>
+              <div>
+                <label>Street: </label>
+                <input type="text" name="street" onChange={newUserHandle} />
+              </div>
+            </div>
           </div>
         </div>
         <div className={styles.newUserRight}>
@@ -96,26 +96,17 @@ const NewUser = () => {
             </RadioGroup>
           </div>
           <div className={styles.userUpdatItem}>
-            <label>Active</label>
-            <FormControl variant="outlined" size="small">
-              <InputLabel id="demo-simple-select-outlined-label">
-                Active
-              </InputLabel>
-              <Select
-                labelId="demo-simple-select-outlined-label"
-                id="demo-simple-select-outlined"
-                label="Active"
-              >
-                <MenuItem value={10}>Yes</MenuItem>
-                <MenuItem value={20}>No</MenuItem>
-              </Select>
-            </FormControl>
             <Button
               variant="contained"
               color="primary"
               className={styles.BtnNewUser}
+              onClick={sendData}
             >
-              Create
+              {sendDataUser === 6 ? (
+                <Link to={{ pathname: "/user/11", data: newUser }}>Creat</Link>
+              ) : (
+                "creat"
+              )}
             </Button>
           </div>
         </div>

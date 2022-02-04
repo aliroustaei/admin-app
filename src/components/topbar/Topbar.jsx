@@ -19,19 +19,21 @@ const Topbar = () => {
           <span className={styles.logo}>AddMin</span>
         </div>
         <div className={styles.topbarRight}>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsNone />
-            </Badge>
-          </IconButton>
+          <div>
+            <IconButton color="inherit">
+              <Badge badgeContent={4} color="secondary">
+                <NotificationsNone />
+              </Badge>
+            </IconButton>
 
-          <IconButton color="inherit">
-            <Language />
-          </IconButton>
+            <IconButton color="inherit">
+              <Language />
+            </IconButton>
 
-          <IconButton color="inherit">
-            <Settings />
-          </IconButton>
+            <IconButton color="inherit">
+              <Settings />
+            </IconButton>
+          </div>
 
           <Switch
             // checked={state.checkedB}

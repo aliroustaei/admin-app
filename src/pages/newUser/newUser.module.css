@@ -34,6 +34,27 @@
   margin-top: 2rem !important;
 }
 
+.userUpdatItem input,
+.userUpdatItem textarea,
+.userUpdatItem select {
+  border-radius: 5px;
+  border: 1px solid #bbbaba;
+  padding: 5px;
+  background-color: transparent;
+  color: var(--black);
+}
+
+.userUpdatItem input:focus,
+.userUpdatItem textarea:focus,
+.userUpdatItem select:focus {
+  border: 1px solid transparent;
+  outline: solid #4791db 2px;
+}
+
+.userAddress {
+  margin: 5px 0;
+}
+
 @media only screen and (max-width: 768px) {
   .newUser {
     margin-top: 3rem;

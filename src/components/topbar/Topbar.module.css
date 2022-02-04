@@ -32,3 +32,9 @@
   width: 20px;
   transition: all 0.5s;
 }
+
+@media only screen and (max-width: 450px) {
+  .topbarRight div {
+    display: none;
+  }
+}

@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./userList.module.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { Avatar } from "@material-ui/core";
 import { DeleteOutline } from "@material-ui/icons";
-import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
+//context
+import { UsersContext } from "../../context/UsersContextProvider";
 
 const UserList = () => {
-  const [data, setData] = useState(userRows);
+  const { users } = useContext(UsersContext);
+  const [data, setData] = useState(users);
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
@@ -16,30 +18,35 @@ const UserList = () => {
     { field: "id", headerName: "ID", width: 90 },
 
     {
-      field: "user",
+      field: "name",
       headerName: "User",
       width: 180,
       renderCell: (params) => {
         return (
           <div className={styles.userName}>
-            <Avatar alt={params.row.Avatar} src={params.row.Avatar} />
-            <p>{params.row.Name}</p>
+            <Avatar
+              alt={params.row.name.firstname}
+              src={params.row.name.firstname}
+            />
+            <p>
+              {params.row.name.firstname} {params.row.name.lastname}
+            </p>
           </div>
         );
       },
     },
 
-    { field: "Email", headerName: "Email", width: 200 },
+    { field: "email", headerName: "Email", width: 200 },
 
     {
-      field: "Status",
-      headerName: "Status",
+      field: "password",
+      headerName: "Password",
       width: 140,
     },
 
     {
-      field: "Transaction",
-      headerName: "Transaction Volume",
+      field: "phone",
+      headerName: "Phone",
       width: 160,
     },
 

@@ -11,14 +11,17 @@
 
 .newProduct form {
   display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
   padding: 1rem;
   box-shadow: var(--shadow);
   border-radius: 10px;
   background-color: var(--bacgroung);
 }
 
-.newProductRight {
-  margin-left: 4rem;
+.newProductRight img {
+  max-width: 250px;
+  border-radius: 10px;
 }
 
 .ProductUpdatItem {
@@ -32,9 +35,34 @@
   margin-top: 2rem !important;
 }
 
+.ProductUpdatItem input,
+.ProductUpdatItem textarea,
+.ProductUpdatItem select {
+  border-radius: 5px;
+  border: 1px solid #bbbaba;
+  padding: 5px;
+  background-color: transparent;
+  color: var(--black);
+}
+
+.ProductUpdatItem input:focus,
+.ProductUpdatItem textarea:focus,
+.ProductUpdatItem select:focus {
+  border: 1px solid transparent;
+  outline: solid #4791db 2px;
+}
+
+.ProductUpdatItem option {
+  background-color: var(--bacgrounglite);
+}
+
 @media only screen and (max-width: 768px) {
   .newProduct {
     margin-top: 3rem;
     padding: 1rem;
+  }
+
+  .newProduct form {
+    flex-direction: column-reverse;
   }
 }

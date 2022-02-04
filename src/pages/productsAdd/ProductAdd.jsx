@@ -1,21 +1,18 @@
-import React, { useContext, useState } from "react";
-import axios from "axios";
-import { productData } from "../../dummyData";
+import React, { useState } from "react";
+import { productDataAdd } from "../../dummyData";
+import { Link } from "react-router-dom";
 //styles
 import styles from "./product.module.css";
 //material
-import { Link } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import { Publish } from "@material-ui/icons";
 import Chart from "../../components/charts/Chart";
-//context
-import { ProductsContext } from "../../context/ProductContextProvider";
+import prewimage from "../../image/prewimage.png";
 
-const Product = (props) => {
-  const { products } = useContext(ProductsContext);
-  const id = props.match.params.id;
-  const [product, setProduct] = useState(products[id - 1]);
-  const { image, title, description, price } = product;
+const ProductAdd = (props) => {
+  const { data } = props.location;
+  const [product, setProduct] = useState({ ...data, image: prewimage });
+  const { title, description, price, rating, active, image } = product;
 
   //update
   const [update, setUpdate] = useState(product);
@@ -29,28 +26,15 @@ const Product = (props) => {
     } else {
       setUpdate({ ...update, [e.target.name]: e.target.value });
     }
-    console.log(update);
   };
 
-  //update database
+  //
   const updateClick = () => {
-    axios
-      .patch(`https://fakestoreapi.com/products/${id}`, update)
-      .then((response) => {
-        const data = response.data;
-        setProduct(data);
-        setProduct({ ...data, image: imageUrl });
-        console.log(data);
-      })
-      .catch((err) => alert("An error occurred Try again"));
+    setProduct({ ...update, image: imageUrl });
   };
 
   //Show image
   const [imageUrl, setImageUrl] = useState();
-
-  const funcImg = (e) => {
-    PreviewImage(e);
-  };
 
   const PreviewImage = (e) => {
     var oFReader = new FileReader();
@@ -80,16 +64,16 @@ const Product = (props) => {
             </div>
             <div className={styles.productBottomInfo}>
               <p>
-                id: <span>{id}</span>
+                id: <span>21</span>
               </p>
               <p>
                 price: <span>${price}</span>
               </p>
               <p>
-                active: <span>yes</span>
+                active: <span>{active}</span>
               </p>
               <p>
-                stocke: <span>120</span>
+                stock: <span>{rating.count}</span>
               </p>
             </div>
           </div>
@@ -99,7 +83,11 @@ const Product = (props) => {
           </div>
         </div>
         <div className={styles.productTopLeft}>
-          <Chart data={productData} dataKey="Sales" title="Sales Performance" />
+          <Chart
+            data={productDataAdd}
+            dataKey="Sales"
+            title="Sales Performance"
+          />
         </div>
       </div>
       <div className={styles.productBottom}>
@@ -110,17 +98,19 @@ const Product = (props) => {
               <input type="text" name="title" onChange={updateHandel} />
             </div>
             <div className={styles.formLeftItem}>
+              <label>Stock</label>
+              <input type="text" name="count" onChange={updateHandel} />
+            </div>
+            <div className={styles.formLeftItem}>
               <label>Price</label>
               <input type="text" name="price" onChange={updateHandel} />
             </div>
             <div className={styles.formLeftItem}>
-              <label>Description</label>
-              <textarea
-                name="description"
-                cols="30"
-                rows="10"
-                onChange={updateHandel}
-              ></textarea>
+              <label>Active</label>
+              <select name="active" id="" onChange={updateHandel}>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
             </div>
           </div>
           <div className={styles.formRight}>
@@ -129,7 +119,7 @@ const Product = (props) => {
               <label htmlFor="file">
                 <Publish />
               </label>
-              <input type="file" id="file" onChange={funcImg} />
+              <input type="file" id="file" onChange={PreviewImage} />
             </div>
             <div>
               <Button variant="contained" color="primary" onClick={updateClick}>
@@ -143,4 +133,4 @@ const Product = (props) => {
   );
 };
 
-export default Product;
+export default ProductAdd;

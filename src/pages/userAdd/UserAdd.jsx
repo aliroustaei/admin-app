@@ -1,6 +1,5 @@
 import { Avatar, Button } from "@material-ui/core";
-import React, { useContext, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import styles from "./user.module.css";
 import { Link } from "react-router-dom";
 import {
@@ -10,33 +9,30 @@ import {
   LocationSearching,
   MailOutline,
 } from "@material-ui/icons";
-//context
-import { UsersContext } from "../../context/UsersContextProvider";
 
-const User = (props) => {
-  const { users } = useContext(UsersContext);
-  const id = props.match.params.id;
-  const [user, setUser] = useState(users[id - 1]);
+const UserAdd = (props) => {
+  const { data } = props.location;
+  const [user, setUser] = useState(data);
   const { name, address, username, phone, email } = user;
 
   //update
-  const [update, setUpdate] = useState(user);
+  const [update, setUpdate] = useState({ ...user, name: {} });
 
   const updateHandel = (e) => {
-    setUpdate({ ...update, [e.target.name]: e.target.value });
+    if (e.target.name === "firstname" || e.target.name === "lastname") {
+      setUpdate({
+        ...update,
+        name: { ...update.name, [e.target.name]: e.target.value },
+      });
+    } else {
+      setUpdate({ ...update, [e.target.name]: e.target.value });
+    }
     console.log(update);
   };
 
   //update database
   const updateClick = () => {
-    axios
-      .patch(`https://fakestoreapi.com/users/${id}`, update)
-      .then((response) => {
-        const data = response.data;
-        setUser(data);
-        console.log(data);
-      })
-      .catch(() => alert("An error occurred Try again"));
+    setUser(update);
   };
 
   return (
@@ -133,4 +129,4 @@ const User = (props) => {
   );
 };
 
-export default User;
+export default UserAdd;

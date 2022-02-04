@@ -69,11 +69,6 @@ label {
   background-color: var(--bacgroung);
 }
 
-.MuiInputBase-root {
-  color: #555 !important;
-  background-color: #fbfbff;
-}
-
 .MuiIconButton-colorPrimary {
   color: var(--primary) !important;
 }

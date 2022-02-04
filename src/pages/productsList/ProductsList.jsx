@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+//styles
 import styles from "./productsList.module.css";
+//material
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { productRows } from "../../dummyData";
 import { Link } from "react-router-dom";
-import appleAirpod from "../../image/shopping.png";
+//context
+import { ProductsContext } from "../../context/ProductContextProvider";
 
 const ProductsList = () => {
-  const [data, setData] = useState(productRows);
+  const { products } = useContext(ProductsContext);
+  const [data, setData] = useState(products);
+
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
@@ -18,21 +22,21 @@ const ProductsList = () => {
     {
       field: "product",
       headerName: "Product",
-      width: 180,
+      width: 240,
       renderCell: (params) => {
         return (
           <div className={styles.product}>
-            <img src={appleAirpod} alt="" />
-            <p>{params.row.name}</p>
+            <img src={params.row.image} alt="" />
+            <p>{params.row.title}</p>
           </div>
         );
       },
     },
 
     {
-      field: "status",
-      headerName: "Status",
-      width: 140,
+      field: "category",
+      headerName: "category",
+      width: 160,
     },
 
     {
