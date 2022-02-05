@@ -27,7 +27,6 @@ const UserAdd = (props) => {
     } else {
       setUpdate({ ...update, [e.target.name]: e.target.value });
     }
-    console.log(update);
   };
 
   //update database

@@ -14,7 +14,9 @@ import { ProductsContext } from "../../context/ProductContextProvider";
 const Product = (props) => {
   const { products } = useContext(ProductsContext);
   const id = props.match.params.id;
-  const [product, setProduct] = useState(products[id - 1]);
+  const [product, setProduct] = useState(
+    products.find((item) => (item.id = id))
+  );
   const { image, title, description, price } = product;
 
   //update
@@ -29,7 +31,6 @@ const Product = (props) => {
     } else {
       setUpdate({ ...update, [e.target.name]: e.target.value });
     }
-    console.log(update);
   };
 
   //update database
@@ -40,7 +41,6 @@ const Product = (props) => {
         const data = response.data;
         setProduct(data);
         setProduct({ ...data, image: imageUrl });
-        console.log(data);
       })
       .catch((err) => alert("An error occurred Try again"));
   };

@@ -6,8 +6,8 @@ import styles from "./newProduct.module.css";
 import { Button } from "@material-ui/core";
 
 const NewProduct = () => {
-  const [newProduct, setNewProduct] = useState();
-  const [sendDataProduct, setsendDataProduct] = useState(false);
+  const [newProduct, setNewProduct] = useState({ title: "" });
+  let sendDataProduct = Object.keys(newProduct).length;
 
   const newProductHandle = (e) => {
     if (e.target.name === "count") {
@@ -18,16 +18,10 @@ const NewProduct = () => {
     } else {
       setNewProduct({ ...newProduct, [e.target.name]: e.target.value });
     }
-    if (newProduct.title && newProduct.price) {
-      setsendDataProduct(true);
-    } else {
-      setsendDataProduct(false);
-    }
-    console.log(newProduct);
   };
 
   const sendData = () => {
-    if (!newProduct.title && !newProduct.price) {
+    if (sendDataProduct <= 4) {
       alert("please enter data");
     }
   };
@@ -99,7 +93,7 @@ const NewProduct = () => {
             className={styles.BtnNewProduct}
             onClick={sendData}
           >
-            {sendDataProduct ? (
+            {sendDataProduct > 5 ? (
               <Link to={{ pathname: "/product/21", data: newProduct }}>
                 Creat
               </Link>

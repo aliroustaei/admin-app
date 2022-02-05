@@ -15,71 +15,73 @@ const WidgetLg = () => {
     <div className={styles.widgetLg}>
       <h3>Latest transactions</h3>
       <table className={styles.widgetLgTable}>
-        <tr>
-          <th>Customer</th>
-          <th>Date</th>
-          <th>Amount</th>
-          <th>Status</th>
-        </tr>
-        <tr>
-          <td className={styles.widgetLgUser}>
-            <Avatar />
-            <p>Ali</p>
-          </td>
-          <td>2 Jun 2021</td>
-          <td>$2,501</td>
-          <td>
-            <Button type="Approved" />
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <th>Customer</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td className={styles.widgetLgUser}>
+              <Avatar />
+              <p>Ali</p>
+            </td>
+            <td>2 Jun 2021</td>
+            <td>$2,501</td>
+            <td>
+              <Button type="Approved" />
+            </td>
+          </tr>
 
-        <tr>
-          <td className={styles.widgetLgUser}>
-            <Avatar />
-            <p>Ali</p>
-          </td>
-          <td>2 Jun 2021</td>
-          <td>$2,501</td>
-          <td>
-            <Button type="Approved" />
-          </td>
-        </tr>
+          <tr>
+            <td className={styles.widgetLgUser}>
+              <Avatar />
+              <p>Ali</p>
+            </td>
+            <td>2 Jun 2021</td>
+            <td>$2,501</td>
+            <td>
+              <Button type="Approved" />
+            </td>
+          </tr>
 
-        <tr>
-          <td className={styles.widgetLgUser}>
-            <Avatar />
-            <p>Ali</p>
-          </td>
-          <td>2 Jun 2021</td>
-          <td>$2,501</td>
-          <td>
-            <Button type="Declined" />
-          </td>
-        </tr>
+          <tr>
+            <td className={styles.widgetLgUser}>
+              <Avatar />
+              <p>Ali</p>
+            </td>
+            <td>2 Jun 2021</td>
+            <td>$2,501</td>
+            <td>
+              <Button type="Declined" />
+            </td>
+          </tr>
 
-        <tr>
-          <td className={styles.widgetLgUser}>
-            <Avatar />
-            <p>Ali</p>
-          </td>
-          <td>2 Jun 2021</td>
-          <td>$2,501</td>
-          <td>
-            <Button type="Pending" />
-          </td>
-        </tr>
+          <tr>
+            <td className={styles.widgetLgUser}>
+              <Avatar />
+              <p>Ali</p>
+            </td>
+            <td>2 Jun 2021</td>
+            <td>$2,501</td>
+            <td>
+              <Button type="Pending" />
+            </td>
+          </tr>
 
-        <tr>
-          <td className={styles.widgetLgUser}>
-            <Avatar />
-            <p>Ali</p>
-          </td>
-          <td>2 Jun 2021</td>
-          <td>$2,501</td>
-          <td>
-            <Button type="Declined" />
-          </td>
-        </tr>
+          <tr>
+            <td className={styles.widgetLgUser}>
+              <Avatar />
+              <p>Ali</p>
+            </td>
+            <td>2 Jun 2021</td>
+            <td>$2,501</td>
+            <td>
+              <Button type="Declined" />
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   );

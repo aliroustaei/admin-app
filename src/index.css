@@ -37,6 +37,10 @@ body {
   background-color: var(--bacgrounglite);
 }
 
+html {
+  width: 100%;
+}
+
 h1,
 h2,
 h3,
@@ -47,13 +51,18 @@ h6 {
   font-weight: 600;
 }
 
+a {
+  text-decoration: none;
+}
+
 p,
 label {
   color: var(--black);
 }
 
-.MuiButton-containedPrimary {
-  color: #fff;
+.MuiButton-containedPrimary,
+.MuiButton-label a {
+  color: #fff !important;
   background-color: #4791db !important;
 }
 .MuiCheckbox-colorPrimary.Mui-checked {

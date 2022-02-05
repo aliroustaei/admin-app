@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styles from "./userList.module.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { Avatar } from "@material-ui/core";
@@ -8,10 +8,10 @@ import { Link } from "react-router-dom";
 import { UsersContext } from "../../context/UsersContextProvider";
 
 const UserList = () => {
-  const { users } = useContext(UsersContext);
-  const [data, setData] = useState(users);
+  const { users, setUsers } = useContext(UsersContext);
+
   const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+    setUsers(users.filter((item) => item.id !== id));
   };
 
   const columns = [
@@ -75,7 +75,7 @@ const UserList = () => {
   return (
     <div className={styles.userList}>
       <DataGrid
-        rows={data}
+        rows={users}
         columns={columns}
         pageSize={8}
         checkboxSelection

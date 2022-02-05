@@ -16,7 +16,7 @@ import { UsersContext } from "../../context/UsersContextProvider";
 const User = (props) => {
   const { users } = useContext(UsersContext);
   const id = props.match.params.id;
-  const [user, setUser] = useState(users[id - 1]);
+  const [user, setUser] = useState(users.find((item) => (item.id = id)));
   const { name, address, username, phone, email } = user;
 
   //update
@@ -24,7 +24,6 @@ const User = (props) => {
 
   const updateHandel = (e) => {
     setUpdate({ ...update, [e.target.name]: e.target.value });
-    console.log(update);
   };
 
   //update database
@@ -34,7 +33,6 @@ const User = (props) => {
       .then((response) => {
         const data = response.data;
         setUser(data);
-        console.log(data);
       })
       .catch(() => alert("An error occurred Try again"));
   };

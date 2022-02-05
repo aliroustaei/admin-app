@@ -21,7 +21,6 @@ const NewUser = () => {
     } else {
       setNewUser({ ...newUser, [e.target.name]: e.target.value });
     }
-    console.log(newUser, sendDataUser);
   };
 
   const sendData = () => {

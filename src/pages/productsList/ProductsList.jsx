@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 //styles
 import styles from "./productsList.module.css";
 //material
@@ -9,11 +9,10 @@ import { Link } from "react-router-dom";
 import { ProductsContext } from "../../context/ProductContextProvider";
 
 const ProductsList = () => {
-  const { products } = useContext(ProductsContext);
-  const [data, setData] = useState(products);
+  const { products, setProducts } = useContext(ProductsContext);
 
   const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+    setProducts(products.filter((item) => item.id !== id));
   };
 
   const columns = [
@@ -70,7 +69,7 @@ const ProductsList = () => {
   return (
     <div className={styles.productsList}>
       <DataGrid
-        rows={data}
+        rows={products}
         columns={columns}
         pageSize={8}
         checkboxSelection

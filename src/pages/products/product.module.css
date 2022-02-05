@@ -61,6 +61,7 @@
 
 .product form {
   display: flex;
+  flex-wrap: wrap;
   box-shadow: var(--shadow);
   background-color: var(--bacgroung);
   padding: 1rem;
@@ -122,5 +123,12 @@
   }
   .productTopRight {
     flex-wrap: wrap;
+  }
+  .formRight {
+    align-items: flex-start;
+  }
+
+  .userUpdateImg {
+    margin: 1rem 0;
   }
 }
